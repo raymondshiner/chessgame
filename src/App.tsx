@@ -1,5 +1,7 @@
+import { Chessboard } from "./chessboard/Chessboard"
+
 const App = () => {
-  return <div>My App</div>
+  return <Chessboard />
 }
 
 export default App
