@@ -9,4 +9,9 @@ describe("Chessboard", () => {
     expect(screen.getAllByTestId("square-black")).toHaveLength(32)
     expect(screen.getAllByTestId("square-white")).toHaveLength(32)
   })
+
+  it("renders a pawn", () => {
+    render(<Chessboard />)
+    expect(screen.getByTestId("pawn")).toBeInTheDocument()
+  })
 })

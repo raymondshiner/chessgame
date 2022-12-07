@@ -1,5 +1,6 @@
 import { FC } from "react"
 import styled from "styled-components"
+import { Pawn } from "../pawn/Pawn"
 
 export const Chessboard: FC = () => {
   const squareGrid = [...Array(8)].map((_, rowIndex) => {
@@ -18,7 +19,12 @@ export const Chessboard: FC = () => {
     return rowOfSquares
   })
 
-  return <ChessBoardWrapper>{squareGrid}</ChessBoardWrapper>
+  return (
+    <ChessBoardWrapper>
+      {squareGrid}
+      <Pawn />
+    </ChessBoardWrapper>
+  )
 }
 
 const onlyOneIsTrue = (a: boolean, b: boolean): boolean => {
