@@ -7,7 +7,7 @@ describe("Chessboard", () => {
 
     //8x8grid => 64 square -> 32 w 32 b
     expect(screen.getAllByTestId("square-black")).toHaveLength(32)
-    expect(screen.getAllByTestId("square-white")).toHaveLength(32)
+    expect(screen.getAllByTestId("square-lightgrey")).toHaveLength(32)
   })
 
   it("renders a pawn", () => {
