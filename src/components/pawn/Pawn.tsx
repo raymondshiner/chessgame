@@ -1,6 +1,8 @@
-import { FC } from "react"
 import WhitePawn from "./white_pawn.svg"
+import BlackPawn from "./black_pawn.svg"
 
-export const Pawn: FC = () => {
-  return <img src={WhitePawn} data-testid="pawn" alt="pawn" />
+export const Pawn = ({ color }: { color: "light" | "dark" }) => {
+  const pawnSvg = color === "light" ? WhitePawn : BlackPawn
+
+  return <img src={pawnSvg} data-testid={`pawn-${color}`} alt="pawn" />
 }

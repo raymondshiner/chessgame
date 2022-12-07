@@ -10,14 +10,16 @@ export const Chessboard: FC = () => {
     const rowOfSquares = [...Array(8)].map((_, columnIndex) => {
       const columnNumber = columnIndex + 1
       const isEvenColumn = columnNumber % 2 === 0
-      const squareIsWhite = onlyOneIsTrue(isEvenRow, isEvenColumn)
+      const squareIsLight = onlyOneIsTrue(isEvenRow, isEvenColumn)
 
-      const squareColor = squareIsWhite ? "lightgrey" : "black"
+      const squareColor = squareIsLight ? "light" : "dark"
       const isVeryFirstSquare = rowNumber === 1 && columnNumber === 1
+      const isVerySecondSquare = rowNumber === 1 && columnNumber === 2
 
       return (
         <ChessSquare color={squareColor}>
-          {isVeryFirstSquare && <Pawn />}
+          {isVeryFirstSquare && <Pawn color="light" />}
+          {isVerySecondSquare && <Pawn color="dark" />}
         </ChessSquare>
       )
     })
@@ -36,7 +38,7 @@ const ChessBoardWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   width: fit-content;
-  border: 3px solid blue;
+  border: 3px solid black;
 `
 
 const ChessRowWrapper = styled.div`
@@ -46,14 +48,18 @@ const ChessRowWrapper = styled.div`
 `
 
 interface ChessSquareProps extends PropsWithChildren {
-  color: "lightgrey" | "black"
+  color: "light" | "dark"
 }
 
-const ChessSquare = ({ color, children }: ChessSquareProps) => (
-  <Square data-testId={`square-${color}`} color={color}>
-    {children}
-  </Square>
-)
+const ChessSquare = ({ color, children }: ChessSquareProps) => {
+  const squareColor = color === "light" ? "#eeeed2" : "#769656"
+
+  return (
+    <Square data-testid={`square-${color}`} color={squareColor}>
+      {children}
+    </Square>
+  )
+}
 
 const Square = styled.div`
   display: flex;
