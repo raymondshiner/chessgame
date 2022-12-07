@@ -1,5 +1,6 @@
 import { FC } from "react"
+import WhitePawn from "./white_pawn.svg"
 
 export const Pawn: FC = () => {
-  return <div data-testid="pawn">I'm a Pawn data-testid='pawn'</div>
+  return <img src={WhitePawn} data-testid="pawn" alt="pawn" />
 }
